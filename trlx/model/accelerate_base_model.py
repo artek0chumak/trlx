@@ -149,7 +149,7 @@ class AccelerateRLModel(BaseRLModel):
         stats = {}
         all_samples = []
         generate_time = time()
-        for prompts in self.eval_dataloader:
+        for prompts in tqdm(self.eval_dataloader, desc="Get evaluated examples"):
             if isinstance(prompts, torch.Tensor):
                 samples = self.generate(prompts)
             else:
