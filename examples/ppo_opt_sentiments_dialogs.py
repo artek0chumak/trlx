@@ -59,7 +59,7 @@ def main(hparams={}):
 
     # Take few words off of movies reviews as prompts
     train_prompts = [e["chunks"] for e in tokenized_datasets["train"]]
-    eval_prompts = [e["chunks"] for e in tokenized_datasets["validation"]][:1024]
+    eval_prompts = [e["chunks"] for e in tokenized_datasets["validation"]][:128]
 
     model = trlx.train(
         reward_fn=partial(reward_fn, tokenizer),

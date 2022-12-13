@@ -172,7 +172,7 @@ class AccelerateRLModel(BaseRLModel):
 
         if self.accelerator.is_main_process:
             if self.tokenizer:
-                samples = self.tokenizer.batch_decode(samples, skip_special_tokens=True)
+                samples = self.tokenizer.batch_decode(samples, skip_special_tokens=False)
 
             if isinstance(samples[0], str):
                 columns_data = [samples]
